@@ -9,14 +9,44 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-- script: |
-    npm install -g @angular/cli
-    npm install
-    ng build --prod
-  displayName: 'npm install and build'
+stages:
+  - stage: Compile
+    displayName: Build Stage
+    jobs: 
+      - job: Build
+        displayName: Build
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''Build Stage'''
+  - stage: Provision Environment
+    displayName: Provision Environment Stage
+    jobs: 
+      - job: Provision
+        displayName: Provision Environment
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''Provision Environment Stage'''
+  - stage: ReadinessTests
+    displayName: ReadinessTests Stage
+    jobs: 
+      - job: Provision
+        displayName: ReadinessTests
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''ReadinessTests Stage'''
+  - stage: UnitTests
+    displayName: UnitTests Stage
+    jobs: 
+      - job: Provision
+        displayName: UnitTests
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''UnitTests Stage'''
