@@ -1,0 +1,261 @@
+{
+    "entity": {
+        "pan": {
+            "plainText": "1616100920006670"
+        },
+        "dateLastUsed": "0000-00-00:00:00:00.000000",
+        "dateLastUpdated": "2019-10-23:16:42:50.520000",
+        "dateLastMaintained": "2019-10-23:16:42:50.520000",
+        "enterpriseCustomerId": "",
+        "card": {
+            "pinFailCount": "00",
+            "limitGroup": "SUNC02",
+            "canWithdraw": "Y",
+            "canDeposit": "Y",
+            "canInquire": "Y",
+            "paymentsTo": "Y",
+            "paymentsFrom": "Y",
+            "transfersTo": "Y",
+            "transfersFrom": "Y",
+            "canPurchase": "Y",
+            "thirdPartyPymt": "Y",
+            "pinOffsetIndicator": "00",
+            "pinOffset": "0000",
+            "expirationDate": "4912",
+            "greetingName": "",
+            "mobileEnrollment": "N",
+            "avsData": "",
+            "lastDemographicUpdated": "2019-10-23:16:42:50.500000",
+            "cardStatus": {
+                "status": "Active",
+                "subStatus": null,
+                "hostValue": "OK-Y"
+            },
+            "prevCardStatus": {
+                "status": "",
+                "subStatus": "",
+                "hostValue": "OK"
+            },
+            "lastCardStatusUpdated": "2019-10-01:15:32:53.520000",
+            "activationStatus": "Y",
+            "activationMethod": {
+                "description": "Operator",
+                "hostDescription": "Activated using API Maintenance",
+                "hostValue": "A"
+            },
+            "activationTime": "2019-10-23:16:42:50.500000",
+            "optOutVauAbuFlag": "N",
+            "prevCardExpirationDate": "0000",
+            "prevCardActivationStatus": "",
+            "lastTimePinChanged": "0001-01-01:00:00:00.000000",
+            "cardMediaType": {
+                "description": "Mag Stripe Only",
+                "hostDescription": "Mag Stripe Only",
+                "hostValue": "MS"
+            },
+            "serviceCode": {
+                "description": "",
+                "hostDescription": "",
+                "hostValue": ""
+            },
+            "cardProfile": "",
+            "autoIssueInd": "N",
+            "cardAssociation": {
+                "description": "MasterCard",
+                "hostDescription": "MasterCard",
+                "hostValue": "M"
+            },
+            "cardType": {
+                "description": "Debit",
+                "hostDescription": "Debit",
+                "hostValue": "DR"
+            },
+            "cardSubType": {
+                "description": "Consumer",
+                "hostDescription": "Consumer",
+                "hostValue": "CO"
+            },
+            "customerSince": "0001-01-01",
+            "vipInd": "N",
+            "embossedBusiness": "",
+            "cardCategory": {
+                "description": "Gold",
+                "hostDescription": "Gold",
+                "hostValue": "G"
+            },
+            "hasCardCompanionMini": "N",
+            "hasCardCompanionMicro": "N",
+            "hasCardCompanionMobile": "N",
+            "contactPref": {
+                "description": "Primary Phone",
+                "hostDescription": "Primary Phone",
+                "hostValue": "H"
+            },
+            "creditLimit": "0000000000",
+            "cashLimit": "0000000000",
+            "pwrOfAttrnyFlag": "N",
+            "pwrOfAttrnyName": "",
+            "bankBranchNo": "",
+            "vruCntrCardAct": "0",
+            "vruCntrPinChange": "0",
+            "alrtEventNo": "",
+            "alrtEventDate": "0001-01-01",
+            "alrtEventLtd": "",
+            "schdBlockDate": "0001-01-01:00:00:00.000000",
+            "severityLvl": "",
+            "travelInd": {
+                "description": "None",
+                "hostDescription": "None",
+                "hostValue": "N"
+            },
+            "travelStartDate": "0001-01-01",
+            "travelEndDate": "0001-01-01",
+            "addresses": [
+                {
+                    "lastAddressUpdated": "2019-10-01:15:30:55.120000",
+                    "addressType": {
+                        "description": "Primary",
+                        "hostDescription": "Primary",
+                        "hostValue": "P"
+                    },
+                    "addressFormat": {
+                        "description": "Domestic US",
+                        "hostDescription": "Domestic US",
+                        "hostValue": "D"
+                    },
+                    "addressLine1": "3453434 STREET",
+                    "addressLine2": "",
+                    "addressLine3": "",
+                    "addressLine4": "",
+                    "city": "WAUT",
+                    "stateProvince": "WI",
+                    "postalCode": "54213",
+                    "countryCode": {
+                        "description": "United States of America",
+                        "hostDescription": "USA",
+                        "hostValue": "840"
+                    },
+                    "beginUsageDate": "0001-01-01",
+                    "endUsageDate": "0001-01-01"
+                }
+            ],
+            "members": [
+                {
+                    "lastMemberUpdated": "2019-10-01:15:30:55.120000",
+                    "memberNum": "01",
+                    "isPrimaryContact": "Y",
+                    "firstName": "DON",
+                    "lastName": "ROSSNER",
+                    "middleInitial": "",
+                    "prefix": "",
+                    "suffix": "",
+                    "embossedName": "",
+                    "cardOrdFlag": {
+                        "description": "Card and PIN",
+                        "hostDescription": "Card and PIN",
+                        "hostValue": "B"
+                    },
+                    "cardOrdStatFlag": {
+                        "description": "Order Created",
+                        "hostDescription": "Order Created",
+                        "hostValue": "3"
+                    },
+                    "cardOrdStatDate": "2019-10-03",
+                    "cardOrdType": {
+                        "description": "Issue new card only if current card is expired",
+                        "hostDescription": "Issue new card only if current card is expired",
+                        "hostValue": "0"
+                    },
+                    "cardReplInd": "Y",
+                    "dateOrigIssued": "2019-10-01",
+                    "dateLastIssued": "2019-10-03",
+                    "cardStockCode": "",
+                    "flatCardInd": "N",
+                    "issuerStockCode": "",
+                    "customImageId": "",
+                    "photoId": "N",
+                    "imageId": "",
+                    "userValidation": "",
+                    "dateOfBirth": "0001-01-01",
+                    "socialSecurityNumber": "",
+                    "motherMaidenName": "",
+                    "passcode": "",
+                    "trackNameMatch": "",
+                    "languageInd": {
+                        "description": "English",
+                        "hostDescription": "English",
+                        "hostValue": "EN"
+                    },
+                    "emailAddress1": "",
+                    "emailAddress2": "",
+                    "militaryFlag": "N",
+                    "militaryStartDate": "0001-01-01",
+                    "militaryEndDate": "0001-01-01",
+                    "phones": []
+                }
+            ],
+            "accounts": [
+                {
+                    "financialInstitutionID": "1840254029",
+                    "accountNumber": "1002558888",
+                    "accountType": {
+                        "description": "Checking",
+                        "hostDescription": "Checking",
+                        "hostValue": "DDA"
+                    },
+                    "accountQualifier": "",
+                    "oarSelectType": {
+                        "description": "Savings Account",
+                        "hostDescription": "Savings Account",
+                        "hostValue": "SAV"
+                    },
+                    "accountDescription": "",
+                    "canAccountWithdraw": "Y",
+                    "canAccountDeposit": "Y",
+                    "canAccountInquiry": "Y",
+                    "paymentsToAccount": "N",
+                    "paymentsFromAccount": "N",
+                    "transferToAccount": "N",
+                    "transferFromAccount": "N",
+                    "canAccountPurchase": "N",
+                    "thirdPartyPayments": "N",
+                    "primaryIndicator": "N",
+                    "fundingIndicator": "N",
+                    "ledgerBalance": "0.00",
+                    "availableBalance": "0.00",
+                    "creditLineAmount": "0.00",
+                    "lastTransactionTstamp": "0001010100000000",
+                    "accountStatus": {
+                        "status": "Active",
+                        "subStatus": null,
+                        "hostValue": "OK"
+                    },
+                    "overdraftAmount": "0.00",
+                    "overdraftFinancialInstitutionID": "",
+                    "overdraftAccountNumber": "",
+                    "overdraftAccountType": {
+                        "description": "",
+                        "hostDescription": "",
+                        "hostValue": ""
+                    }
+                }
+            ],
+            "previousCards": [],
+            "replacedByCards": [
+                {
+                    "pan": "1616100920006680",
+                    "plastic": "",
+                    "order": 0
+                }
+            ]
+        }
+    },
+    "metadata": {
+        "msgLst": [
+            {
+                "code": "00",
+                "text": "SUCCESS"
+            }
+        ]
+    }
+}

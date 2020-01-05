@@ -1,0 +1,1 @@
+/usr/bin/wget "www.exampleeeeeeeee.com" --timeout 30 -O - 2>/dev/null | grep "Normal operation string" || echo "The site is down" ; exit 125

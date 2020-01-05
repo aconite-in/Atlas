@@ -1,13 +1,17 @@
 {
-  "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "../out-tsc/e2e",
-    "module": "commonjs",
-    "target": "es5",
-    "types": [
-      "jasmine",
-      "jasminewd2",
-      "node"
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "declaration": false,
+        // "outFile": "./",
+        //"outDir": "./bin",
+        "strict": true,
+        "esModuleInterop": true
+    },
+    "exclude": [
+        "node_modules"
     ]
-  }
 }
