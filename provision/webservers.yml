@@ -1,0 +1,19 @@
+---
+- hosts: host1
+  remote_user: testadmin
+  sudo: yes
+  sudo_user: azure-admin
+  gather_facts: no
+  tasks:
+  - name: Install nodejs
+    apt: name=nodejs-legacy state=present
+    become_user: root
+  - name: Install npm
+    apt: name=npm state=present
+    become_user: root
+  - name: Install Http-server
+    shell: npm install http-server -g
+    become_user: root
+  - name: Straring Http-server
+    shell: http-server ~/Sonic/ &
+    become_user: root
