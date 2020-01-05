@@ -21,7 +21,7 @@ stages:
               targetType: 'inline'
               script: 'echo ''Build Stage'''
   - stage: Provision_Environment
-    displayName: Provision Environment Stage
+    displayName: Provision Env
     jobs: 
       - job: Provision
         displayName: Provision_Environment
@@ -31,7 +31,7 @@ stages:
               targetType: 'inline'
               script: 'echo ''Provision Environment Stage'''
   - stage: ReadinessTests
-    displayName: ReadinessTests Stage
+    displayName: Readiness Test
     jobs: 
       - job: Provision
         displayName: ReadinessTests
@@ -41,7 +41,7 @@ stages:
               targetType: 'inline'
               script: 'echo ''ReadinessTests Stage'''
   - stage: UnitTests
-    displayName: UnitTests Stage
+    displayName: Unit Test
     jobs: 
       - job: Provision
         displayName: UnitTests
@@ -49,4 +49,4 @@ stages:
           - task: Bash@3
             inputs:
               targetType: 'inline'
-              script: 'echo ''UnitTests Stage'''
+              script: 'echo ''Unit Tests Stage'''
