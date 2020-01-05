@@ -20,11 +20,11 @@ stages:
             inputs:
               targetType: 'inline'
               script: 'echo ''Build Stage'''
-  - stage: Provision Environment
+  - stage: Provision_Environment
     displayName: Provision Environment Stage
     jobs: 
       - job: Provision
-        displayName: Provision Environment
+        displayName: Provision_Environment
         steps:
           - task: Bash@3
             inputs:
