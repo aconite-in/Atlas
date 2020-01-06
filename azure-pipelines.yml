@@ -45,7 +45,6 @@ stages:
             displayName: 'Install Node.js'
           - script: |
               npm install
-              npm run tsc
             displayName: 'npm install and build'
           - task: CopyFiles@2
             displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
