@@ -29,14 +29,37 @@ stages:
             displayName: "Copy Terraform"
             inputs:
               SourceFolder: "./provision"
-              TargetFolder: '$(Build.ArtifactStagingDirectory)'
+              TargetFolder: '$(Build.ArtifactStagingDirectory)/provision'
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Artifact: provision'
             inputs:
               ArtifactName: provision
-              PathtoPublish: $(Build.ArtifactStagingDirectory)
+              PathtoPublish: $(Build.ArtifactStagingDirectory)/provision
               publishLocation: Container
-              
+      - job: TSpector
+        displayName: TSpector Build
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '10.x'
+            displayName: 'Install Node.js'
+          - script: |
+              npm install
+              npm run tsc
+            displayName: 'npm install and build'
+          - task: CopyFiles@2
+            displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+            inputs:
+              SourceFolder: "./e2e"
+              TargetFolder: '$(Build.ArtifactStagingDirectory)/e2e'
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish Artifact: TSpector'
+            inputs:
+              ArtifactName: e2e
+              PathtoPublish: $(Build.ArtifactStagingDirectory)/e2e
+              publishLocation: Container
+
+
   - stage: Provision_Environment
     displayName: Provision Env
     jobs: 
