@@ -36,6 +36,7 @@ stages:
               ArtifactName: drop
               PathtoPublish: $(Build.ArtifactStagingDirectory)
               publishLocation: Container
+              
   - stage: Provision_Environment
     displayName: Provision Env
     jobs: 
@@ -46,6 +47,7 @@ stages:
             inputs:
               targetType: 'inline'
               script: 'echo ''Provision Environment Stage'''
+
   - stage: ReadinessTests
     displayName: Readiness Test
     jobs: 
@@ -56,6 +58,7 @@ stages:
             inputs:
               targetType: 'inline'
               script: 'echo ''ReadinessTests Stage'''
+
   - stage: UnitTests
     displayName: Unit Test
     jobs: 
