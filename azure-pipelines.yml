@@ -59,6 +59,16 @@ stages:
               PathtoPublish: $(Build.ArtifactStagingDirectory)/e2e
               publishLocation: Container
 
+  - stage: static_scans
+    displayName: Static Code Scan
+    jobs: 
+      - job: StaticScan
+        displayName: Static Code Scan
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''Static code scan Stage'''
 
   - stage: Provision_Environment
     displayName: Provision Env
