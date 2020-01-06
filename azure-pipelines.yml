@@ -16,10 +16,12 @@ stages:
       - job: Build
         displayName: Build
         steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: 'echo ''Build Stage'''
+          - task: NodeTool@0
+            displayName: "Compiling Angular"
+          - script:
+              npm install -g @angular/cli
+              npm install
+              ng build --prod
   - stage: Provision_Environment
     displayName: Provision Env
     jobs: 
