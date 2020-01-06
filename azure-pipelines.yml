@@ -34,7 +34,7 @@ stages:
             displayName: 'Publish Artifact: drop'
             inputs:
               ArtifactName: drop
-              PathtoPublish: $(Build.ArtifactStagingDirectory)
+              PathtoPublish: $(Build.ArtifactStagingDirectory)/Provision
               publishLocation: Container
               
   - stage: Provision_Environment
