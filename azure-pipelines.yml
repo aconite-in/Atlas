@@ -14,7 +14,7 @@ stages:
     displayName: Build Stage
     jobs: 
       - job: Build
-        displayName: Build
+        displayName: Build Angular
         steps:
           - task: NodeTool@0
             displayName: "Compiling Angular"
@@ -22,6 +22,20 @@ stages:
               npm install -g @angular/cli
               npm install
               ng build --prod
+      - job: TerraForm
+        displayName: Artifact Teraform
+        steps:
+          - task: CopyFiles@2
+            displayName: "Copy Terraform"
+            inputs:
+              SourceFolder: "./provision"
+              TargetFolder: '$(Build.ArtifactStagingDirectory)'
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish Artifact: drop'
+            inputs:
+              ArtifactName: drop
+              PathtoPublish: $(Build.ArtifactStagingDirectory)
+              publishLocation: Container
   - stage: Provision_Environment
     displayName: Provision Env
     jobs: 
