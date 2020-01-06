@@ -69,28 +69,6 @@ stages:
               targetType: 'inline'
               script: 'echo ''Static code scan Stage'''
 
-  - stage: Provision_Environment
-    displayName: Provision Env
-    jobs: 
-      - job: Provision
-        displayName: Provision_Environment
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: 'echo ''Provision Environment Stage'''
-
-  - stage: ReadinessTests
-    displayName: Readiness Test
-    jobs: 
-      - job: Provision
-        displayName: ReadinessTests
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: 'echo ''ReadinessTests Stage'''
-
   - stage: UnitTests
     displayName: Unit Test
     jobs: 
@@ -101,3 +79,48 @@ stages:
             inputs:
               targetType: 'inline'
               script: 'echo ''Unit Tests Stage'''
+
+## This should inc
+  - stage: Provision_Environment
+    displayName: Prov Env & Deploy
+    jobs: 
+      - job: Provision
+        displayName: Provision_Environment
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''Provision Environment Stage'''
+
+## This shoudl include API test and smoke tests
+  - stage: ReadinessTests
+    displayName: Environment Readiness 
+    jobs: 
+      - job: Provision
+        displayName: API Test
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''API Test'''
+
+## should include the UI test subset
+      - job: Provision
+        displayName: Smoke Test
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''Smoke Test Stage'''
+
+## Just a place holder
+  - stage: E2E
+    displayName: End to End QA Test
+    jobs: 
+      - job: Provision
+        displayName: e2e
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''QA Test'''
