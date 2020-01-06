@@ -96,7 +96,7 @@ stages:
   - stage: ReadinessTests
     displayName: Environment Readiness 
     jobs: 
-      - job: Provision
+      - job: APITest
         displayName: API Test
         steps:
           - task: Bash@3
@@ -105,7 +105,7 @@ stages:
               script: 'echo ''API Test'''
 
 ## should include the UI test subset
-      - job: Provision
+      - job: SmokeTest
         displayName: Smoke Test
         steps:
           - task: Bash@3
