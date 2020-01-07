@@ -17,7 +17,7 @@ stages:
           - script:
               npm install -g @angular/cli
               npm install
-              ng lint
+              tslint -c tslint.json 'src/**/*.ts'
 
   - stage: Compile
     displayName: Build Stage
