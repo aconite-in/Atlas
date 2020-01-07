@@ -3,9 +3,9 @@ import { Logger } from "./Core/DataAccess/Logger";
 const fs = require("fs");
 
 export const config: Config = {
-    //seleniumAddress: "http://cucumber-selenium-hub-ifs-dev-ocp.sdlocpapp.fisdev.local/wd/hub ",
+    // seleniumAddress: "http://cucumber-selenium-hub-ifs-dev-ocp.sdlocpapp.fisdev.local/wd/hub ",
     directConnect: true,
-    //SELENIUM_PROMISE_MANAGER: true,
+    // SELENIUM_PROMISE_MANAGER: true,
     getPageTimeout: 200000,
     allScriptsTimeout: 14400000,
     elementTimeout: 10000,
@@ -20,7 +20,7 @@ export const config: Config = {
         // maxInstances: 1,
         // 'test'
     },
-    chromeDriver: 'C:/Users/E5555287/Downloads/chromedriver/chromedriver.exe',
+    chromeDriver: "C:/Users/E5555287/Downloads/chromedriver/chromedriver.exe",
     // Spec patterns are relative to this directory.
     specs: [
         // UP UI Regression flows -----------------------
@@ -76,8 +76,8 @@ export const config: Config = {
 
     onComplete() {
         if (config.directConnect) {
-            let reporter = require("cucumber-html-reporter");
-            let options = {
+            const reporter = require("cucumber-html-reporter");
+            const options = {
                 theme: "bootstrap",
                 jsonFile: `./Reports/TSpector.json`,
                 // jsonDir: './Reports',

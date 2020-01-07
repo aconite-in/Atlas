@@ -1,7 +1,6 @@
 import { BasePage } from "../Core/BasePage";
 import { Button } from "../Core/WebElements/Button";
 
-
 export class UPSwitchselectPage extends BasePage {
 
     public FISBButton: Button = new Button("id", "card-switch-selection-FISB");
@@ -14,10 +13,10 @@ export class UPSwitchselectPage extends BasePage {
     public TDBKButton: Button = new Button("id", "card-switch-selection-TDBK");
 
     constructor() {
-        super("", "card-switch-selection-FISB", 20000, "id"); //wait till the Switch selection page is loaded
+        super("", "card-switch-selection-FISB", 20000, "id"); // wait till the Switch selection page is loaded
     }
 
-    navigateTo(): void {
+    public navigateTo(): void {
     }
 }
-
+

@@ -1,11 +1,11 @@
 import { BasePage } from "../Core/BasePage";
 import { Label } from "../Core/WebElements/Label";
-import { JMSLoginPage } from "./JMSLoginPage";
 import { LinkLabel } from "../Core/WebElements/LinkLabel";
+import { JMSLoginPage } from "./JMSLoginPage";
 
 export class PortalPage extends BasePage {
 
-    //public RecentJobs: HtmlTable = new HtmlTable("", "", "#main_content_pneGridUsers_lbForward", undefined, "class");
+    // public RecentJobs: HtmlTable = new HtmlTable("", "", "#main_content_pneGridUsers_lbForward", undefined, "class");
 
     public HomeLink: LinkLabel = new LinkLabel("partiallinktext", "Home");
     public JobsLink: LinkLabel = new LinkLabel("partiallinktext", "Jobs");
@@ -20,8 +20,8 @@ export class PortalPage extends BasePage {
         super("https://pr-jms.fisintegratedpayables.com/jms/portal/portal.aspx", "//*[@id='Left']/tbody/tr/td/table/tbody/tr[1]/td/table/tbody/tr[1]/td/table/tbody/tr/td[2]/span", 20000, "xpath");
     }
 
-    async navigateTo() {
-        let jms = new JMSLoginPage();
+    public async navigateTo() {
+        const jms = new JMSLoginPage();
         await jms.navigateTo();
         await jms.UserName.type("ImranJMS");
         await jms.proceedButton.click();

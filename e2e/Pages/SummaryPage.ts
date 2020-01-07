@@ -1,8 +1,8 @@
 import { BasePage } from "../Core/BasePage";
 import { Button } from "../Core/WebElements/Button";
+import { ComboBox } from "../Core/WebElements/ComboBox";
 import { LinkLabel } from "../Core/WebElements/LinkLabel";
 import { TextBox } from "../Core/WebElements/TextBox";
-import { ComboBox } from "../Core/WebElements/ComboBox";
 
 export class SummaryPage extends BasePage {
 
@@ -18,7 +18,7 @@ export class SummaryPage extends BasePage {
         super("https://pr-jms.fisintegratedpayables.com/jms/job/summary.aspx", "//*[@id='dgActiveJobs']", 20000, "xpath");
     }
 
-    navigateTo() {
+    public navigateTo() {
     }
 
 }

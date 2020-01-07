@@ -9,7 +9,7 @@ export class HoldItemsConfirmationPage extends BasePage {
         super("", "//*[@id='main_content_lblInfo']", 20000, "xpath");
     }
 
-    navigateTo(): void {
+    public navigateTo(): void {
         throw new Error("Method not implemented.");
     }
 

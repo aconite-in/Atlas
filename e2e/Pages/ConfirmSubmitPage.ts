@@ -11,7 +11,7 @@ export class ConfirmSubmitPage extends BasePage {
         super("", "//*[@id='main_content_spanSubmit']", 20000, "xpath");
     }
 
-    navigateTo(): void {
+    public navigateTo(): void {
         throw new Error("Method not implemented.");
     }
 

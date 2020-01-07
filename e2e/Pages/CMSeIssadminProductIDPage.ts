@@ -4,7 +4,7 @@ import { TextBox } from "../Core/WebElements/TextBox";
 
 export class CMSeIssadminProductIDPage extends BasePage {
 
-    //Issuer ID admin fields
+    // Issuer ID admin fields
     public DefaultIssueridbutton: Button = new Button("xpath", '//*[@id="attributes"]/li[1]/span[1]');
     public DefaultIssueridtextbox: TextBox = new TextBox("id", "130818");
     public DefaultIssueridaddattributebutton: Button = new Button("xpath", '//*[@id="attributes"]/li[1]/a[2]');
@@ -24,11 +24,11 @@ export class CMSeIssadminProductIDPage extends BasePage {
     public ContinueLink: Button = new Button("xpath", '//*[@id="main-column"]/div/div[2]/a[3]');
 
     constructor() {
-        //super("", '//*[contains(text(),"Issuer Id Admin")]', undefined, "xpath"); //wait till the Issuer ID admin Product information page is loaded
+        // super("", '//*[contains(text(),"Issuer Id Admin")]', undefined, "xpath"); //wait till the Issuer ID admin Product information page is loaded
         super("", "Issuer Id Admin", undefined, "text");
     }
 
-    navigateTo(): void {
-        //throw new Error("Method not implemented.");
+    public navigateTo(): void {
+        // throw new Error("Method not implemented.");
     }
 }

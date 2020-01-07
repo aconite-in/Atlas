@@ -1,8 +1,8 @@
-import { browser } from "protractor"
+import { browser } from "protractor";
 import { BasePage } from "../Core/BasePage";
-import { TextBox } from "../Core/WebElements/TextBox";
 import { Button } from "../Core/WebElements/Button";
 import { Label } from "../Core/WebElements/Label";
+import { TextBox } from "../Core/WebElements/TextBox";
 
 export class LoginPage extends BasePage {
 
@@ -16,7 +16,7 @@ export class LoginPage extends BasePage {
         super("https://pr.fisintegratedpayables.com/fis/CustomerLogin.aspx", "//*[@id='_Input']", 20000, "xpath");
     }
 
-    navigateTo(): void {
-        browser.get(this.pageURL)
+    public navigateTo(): void {
+        browser.get(this.pageURL);
     }
 }

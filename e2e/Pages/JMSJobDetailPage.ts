@@ -6,7 +6,7 @@ export class JMSJobDetailPage extends BasePage {
         super("", "//span[@id='Label5']", 20000, "xpath");
     }
 
-    navigateTo(): void {
+    public navigateTo(): void {
         throw new Error("Method not implemented.");
     }
 }

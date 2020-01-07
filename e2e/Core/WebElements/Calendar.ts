@@ -10,14 +10,14 @@ export class Calendar extends BaseElement {
             await browser.wait(async () => await EC.elementToBeClickable(this.get()), config.elementTimeout).then(async () => {
                 await this.get().click();
                 await element(by.xpath('//button[@cdkarialive="polite"] | //button[contains(@aria-label,"Choose month and year")]')).click();
-                await element(by.xpath(`//div[@class="mat-calendar-body-cell-content"][contains(text(),"${year}")] | 
-                //div[@class="mat-calendar-body-cell-content mat-calendar-body-selected mat-calendar-body-today"][contains(text(),"${year}")] | 
+                await element(by.xpath(`//div[@class="mat-calendar-body-cell-content"][contains(text(),"${year}")] |
+                //div[@class="mat-calendar-body-cell-content mat-calendar-body-selected mat-calendar-body-today"][contains(text(),"${year}")] |
                 //table//tbody//tr//td[contains(.,"${year}")]`)).click();
-                await element(by.xpath(`//div[@class="mat-calendar-body-cell-content"][contains(text(),"${month}")] | 
-                //div[@class="mat-calendar-body-cell-content mat-calendar-body-selected mat-calendar-body-today"][contains(text(),"${month}")] | 
-                //table//tbody//tr//td[contains(.,"${month}")]`)).click()
-                await element(by.xpath(`//div[@class="mat-calendar-body-cell-content"][normalize-space()="${day}"] | 
-                //div[@class="mat-calendar-body-cell-content mat-calendar-body-selected mat-calendar-body-today"][normalize-space()="${day}"] | 
+                await element(by.xpath(`//div[@class="mat-calendar-body-cell-content"][contains(text(),"${month}")] |
+                //div[@class="mat-calendar-body-cell-content mat-calendar-body-selected mat-calendar-body-today"][contains(text(),"${month}")] |
+                //table//tbody//tr//td[contains(.,"${month}")]`)).click();
+                await element(by.xpath(`//div[@class="mat-calendar-body-cell-content"][normalize-space()="${day}"] |
+                //div[@class="mat-calendar-body-cell-content mat-calendar-body-selected mat-calendar-body-today"][normalize-space()="${day}"] |
                 //table//tbody//tr//td[contains(.,"${day}")]`)).click();
                 Logger.log(LogLevel.INFO, `Button: Clicked Button with ${this.locatorType} =  ${this.locatorValue}`);
             }, (err) => { Logger.log(LogLevel.ERROR, `Calendar: Failed to click Xpath with ${this.locatorType} =  ${this.locatorValue}`); });

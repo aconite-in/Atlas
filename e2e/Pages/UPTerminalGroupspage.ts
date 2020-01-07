@@ -1,16 +1,15 @@
 import { BasePage } from "../Core/BasePage";
-import { TextBox } from "../Core/WebElements/TextBox";
 import { Button } from "../Core/WebElements/Button";
-import { Label } from "../Core/WebElements/Label";
-import { HtmlTable } from "../Core/WebElements/HtmlTable";
 import { ComboBox } from "../Core/WebElements/ComboBox";
+import { HtmlTable } from "../Core/WebElements/HtmlTable";
+import { Label } from "../Core/WebElements/Label";
 import { LinkLabel } from "../Core/WebElements/LinkLabel";
+import { TextBox } from "../Core/WebElements/TextBox";
 import { UPHomePage } from "./UPHomePage";
-
 
 export class UPTerminalGroupspage extends BasePage {
 
-    public InstIDCombobox: ComboBox = new ComboBox("id", 'input-groups-criteria-instId');
+    public InstIDCombobox: ComboBox = new ComboBox("id", "input-groups-criteria-instId");
     public Newgroupbutton: Button = new Button("id", "button-terminal-group-add");
     public Filtergrouptextbox: TextBox = new TextBox("id", "input-groups-criteria-filter-groups");
     public Successmessage: Label = new Label("id", "successDialogIcon");
@@ -23,15 +22,14 @@ export class UPTerminalGroupspage extends BasePage {
     public AddTerminallink: Label = new Label("xpath", '//*[contains(@id,"button-terminal-groups-title")]/mat-card/mat-card-content/div[2]/p/span/a');
 
     constructor() {
-        super("", "Terminal Groups", 20000, "text"); //wait till the Terminal Groups page is loaded
+        super("", "Terminal Groups", 20000, "text"); // wait till the Terminal Groups page is loaded
     }
 
-    async navigateTo() {
-        let UPHomepage = new UPHomePage();
-        if (await UPHomepage.isOpen()) { await UPHomepage.TerminalGroupslinklabel.click(); }
-        else { await UPHomepage.navigateTo(); await UPHomepage.isOpen(); await UPHomepage.TerminalGroupslinklabel.click(); }
+    public async navigateTo() {
+        const UPHomepage = new UPHomePage();
+        if (await UPHomepage.isOpen()) { await UPHomepage.TerminalGroupslinklabel.click(); } else { await UPHomepage.navigateTo(); await UPHomepage.isOpen(); await UPHomepage.TerminalGroupslinklabel.click(); }
 
     }
 
 }
-
+

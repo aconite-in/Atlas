@@ -1,8 +1,8 @@
 import { BasePage } from "../Core/BasePage";
 import { Button } from "../Core/WebElements/Button";
+import { LinkLabel } from "../Core/WebElements/LinkLabel";
 import { TextBox } from "../Core/WebElements/TextBox";
 import { CMSeProductIDListPage } from "./CMSeProductIDListPage";
-import { LinkLabel } from "../Core/WebElements/LinkLabel";
 
 export class CMSeSearchProductIDPage extends BasePage {
 
@@ -13,11 +13,11 @@ export class CMSeSearchProductIDPage extends BasePage {
     public addProductIdSubmitlink: LinkLabel = new LinkLabel("id", "addProductIdSubmit");
 
     constructor() {
-        //super("", '//*[contains(text(),"Product ID Search")]', undefined, "xpath"); //wait till the Product ID Search Page is loaded
+        // super("", '//*[contains(text(),"Product ID Search")]', undefined, "xpath"); //wait till the Product ID Search Page is loaded
         super("", "Product ID Search", undefined, "text");
     }
 
-    async navigateTo() { //Navigate to Product ID Search page
-        //throw new Error("Method not implemented.");
+    public async navigateTo() { // Navigate to Product ID Search page
+        // throw new Error("Method not implemented.");
     }
 }

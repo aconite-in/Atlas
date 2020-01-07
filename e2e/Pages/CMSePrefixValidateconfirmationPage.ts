@@ -10,11 +10,11 @@ export class CMSePrefixValidateconfirmationPage extends BasePage {
     public InstititonTab: Button = new Button("id", "InstitutionMenuTab");
 
     constructor() {
-        //super("", '//*[contains(text(),"Product ID → Prefix Validate / Link")]', undefined, "xpath"); //wait till the Prefix validate confirmation page is loaded
+        // super("", '//*[contains(text(),"Product ID → Prefix Validate / Link")]', undefined, "xpath"); //wait till the Prefix validate confirmation page is loaded
         super("", "Product ID → Prefix Validate / Link", undefined, "text");
     }
 
-    navigateTo(): void {
-        //throw new Error("Method not implemented.");
+    public navigateTo(): void {
+        // throw new Error("Method not implemented.");
     }
 }

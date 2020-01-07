@@ -9,7 +9,7 @@ export class BatchDetailsPage extends BasePage {
         super("", "//*[@id='main_content_pnlSummaryGrid']", 70000, "xpath");
     }
 
-    navigateTo(): void {
+    public navigateTo(): void {
         throw new Error("Method not implemented.");
     }
 

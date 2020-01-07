@@ -8,11 +8,11 @@ export class CMSeProductDetailPage extends BasePage {
     public ViewProductbutton: Button = new Button("id", "ViewProductConfiguration");
 
     constructor() {
-        //super("", '//*[contains(text(),"Product ID Detail")]', undefined, "xpath"); //wait till the Product Detail page is loaded
+        // super("", '//*[contains(text(),"Product ID Detail")]', undefined, "xpath"); //wait till the Product Detail page is loaded
         super("", "Product ID Detail", undefined, "text");
     }
 
-    navigateTo(): void {
-        //throw new Error("Method not implemented.");
+    public navigateTo(): void {
+        // throw new Error("Method not implemented.");
     }
 }

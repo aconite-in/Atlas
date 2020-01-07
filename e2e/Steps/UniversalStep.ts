@@ -44,7 +44,7 @@ Before((scenario: HookScenarioResult) => {
 
 });
 
-After(function (scenario) {
+After(function(scenario) {
     if (scenario.result.status === "failed") {
         const attach = this.attach;
         return browser.takeScreenshot().then((png) => {
@@ -184,7 +184,7 @@ When("System EXE JS {string} and sorts result in key {string}", async (jsCode: s
 /**
  * This will simply take a screenshot of the current page and will attach it in the report. This step should be avoided as it will increase the size of the report.
  */
-When("System takes a screenshot", async function () {
+When("System takes a screenshot", async function() {
     const attach = this.attach;
     return browser.takeScreenshot().then((png) => {
         const decodedImage = new Buffer(png, "base64");
@@ -370,37 +370,36 @@ When("User select Year {string} Month {string} Day {string} from calendar {strin
 /**
  * This step will scroll to top of the page.
  */
-When('User scrolls to the top of page', async () => {
+When("User scrolls to the top of page", async () => {
     await browser.executeScript("scrollTo(0,0)");
-    Logger.log(LogLevel.INFO, `UniversalStep: User scrolls to the top of page`)
+    Logger.log(LogLevel.INFO, `UniversalStep: User scrolls to the top of page`);
 });
-
 
 /**
  * This step accepts alert pop up
  */
-When('User accepts alert popup', async () => {
+When("User accepts alert popup", async () => {
     const popup = browser.switchTo().alert();
     await popup.accept();
-    Logger.log(LogLevel.INFO, 'UniversalStep: User accepted alert popup')
+    Logger.log(LogLevel.INFO, "UniversalStep: User accepted alert popup");
 });
 
 /**
  * This step declines alert pop up
  */
-When('User cancel alert popup', async () => {
+When("User cancel alert popup", async () => {
     const popup = browser.switchTo().alert();
     await popup.dismiss();
-    Logger.log(LogLevel.INFO, 'UniversalStep: User cancelled alert popup')
+    Logger.log(LogLevel.INFO, "UniversalStep: User cancelled alert popup");
 });
 
 /**
  * This method validates if the element has the required element the required value present in it.
- * 
+ *
  * Element (Parameter 1): The web element whose attibute needs to be tested
  * Attribute (Parameter 2): Attibute of the web element whose value need to be tested
  * AttributeValue (Parameter 3): The expected value of the attribute
  */
-Then('Validate that {string} has attribute {string} with value {string}', async (webElement: string, attribute: string, attributeValue: string) => {
+Then("Validate that {string} has attribute {string} with value {string}", async (webElement: string, attribute: string, attributeValue: string) => {
     await InvokeElementMethod(webElement, "valitdateAttributeValue", [attribute, attributeValue]);
-})
+});

@@ -2,7 +2,6 @@ import { BasePage } from "../Core/BasePage";
 import { HtmlTable } from "../Core/WebElements/HtmlTable";
 import { LinkLabel } from "../Core/WebElements/LinkLabel";
 
-
 export class HomePage extends BasePage {
 
     public LogoutLink: LinkLabel = new LinkLabel("css", "#mainContainer > table > tbody > tr > td:nth-child(5) > a");
@@ -13,7 +12,7 @@ export class HomePage extends BasePage {
         super("", "//*[@id='main_content_lblLoggedInUser']", 20000, "xpath");
     }
 
-    navigateTo(): void {
+    public navigateTo(): void {
         throw new Error("Method not implemented.");
     }
 

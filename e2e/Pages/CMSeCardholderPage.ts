@@ -1,8 +1,8 @@
 import { BasePage } from "../Core/BasePage";
 import { Button } from "../Core/WebElements/Button";
-import { CMSeLoginPage } from "./CMSeLoginPage";
-import { TextBox } from "../Core/WebElements/TextBox";
 import { LinkLabel } from "../Core/WebElements/LinkLabel";
+import { TextBox } from "../Core/WebElements/TextBox";
+import { CMSeLoginPage } from "./CMSeLoginPage";
 
 export class CMSeCardholderPage extends BasePage {
 
@@ -16,13 +16,13 @@ export class CMSeCardholderPage extends BasePage {
     public logoutlink: LinkLabel = new LinkLabel("css", "#bannerLinkForm > a:nth-child(3)");
 
     constructor() {
-        //super("", '//*[contains(text(),"Cardholder Search")]', undefined, "xpath"); //wait till the Cardholder Search page is loaded
+        // super("", '//*[contains(text(),"Cardholder Search")]', undefined, "xpath"); //wait till the Cardholder Search page is loaded
         super("", "Cardholder Search", undefined, "text");
     }
 
-    async navigateTo() {//Navigate till Cardholder Search page
-        //throw new Error("Method not implemented.");
-        let CMSeLogin = new CMSeLoginPage();
+    public async navigateTo() {// Navigate till Cardholder Search page
+        // throw new Error("Method not implemented.");
+        const CMSeLogin = new CMSeLoginPage();
         await CMSeLogin.navigateTo();
         await CMSeLogin.UserName.type("W951gr5");
         await CMSeLogin.Password.type("Month$18");

@@ -1,15 +1,13 @@
 import { BasePage } from "../Core/BasePage";
-import { TextBox } from "../Core/WebElements/TextBox";
 import { Button } from "../Core/WebElements/Button";
-import { Label } from "../Core/WebElements/Label";
-import { HtmlTable } from "../Core/WebElements/HtmlTable";
-import { LinkLabel } from "../Core/WebElements/LinkLabel";
-import { DataTable } from "../Core/WebElements/DataTable";
 import { Calendar } from "../Core/WebElements/Calendar";
-
+import { DataTable } from "../Core/WebElements/DataTable";
+import { HtmlTable } from "../Core/WebElements/HtmlTable";
+import { Label } from "../Core/WebElements/Label";
+import { LinkLabel } from "../Core/WebElements/LinkLabel";
+import { TextBox } from "../Core/WebElements/TextBox";
 
 export class UPTransactionsearchpage extends BasePage {
-
 
     public Startcalendar: Calendar = new Calendar("xpath", '(//span[@class="mat-button-wrapper"][1])[1]');
     public Endcalendar: Calendar = new Calendar("xpath", '(//span[@class="mat-button-wrapper"][1])[2]');
@@ -31,7 +29,7 @@ export class UPTransactionsearchpage extends BasePage {
     public trandetailacqproclabel: Label = new Label("id", "field-transaction-detail-acquirer-processor");
     public trandetailacqbusslabel: Label = new Label("id", "field-transaction-detail-acquirer-business");
     public trandetailacqentlabel: Label = new Label("id", "field-transaction-detail-acquirer-entity");
-    public trandetailissproclabel: Label = new Label("id", "field-transaction-detail-issuer-processor")
+    public trandetailissproclabel: Label = new Label("id", "field-transaction-detail-issuer-processor");
     public trandetailacqinstlabel: Label = new Label("id", "field-transaction-detail-acquirer-inst");
     public trandetailmcclabel: Label = new Label("id", "field-transaction-detail-category-code");
     public trandetailissnwlabel: Label = new Label("id", "field-transaction-detail-issuer-network");
@@ -44,13 +42,12 @@ export class UPTransactionsearchpage extends BasePage {
     public closetransactiondetailbutton: Button = new Button("xpath", '//*[@id="button-transaction-detail-close"]/span/ox-icon');
     public returntodashboardbutton: Button = new Button("id", "apex-header-icon");
 
-
     constructor() {
-        super("", "Search Criteria", 20000, "text"); //wait till the Transaction Search page is loaded
+        super("", "Search Criteria", 20000, "text"); // wait till the Transaction Search page is loaded
     }
 
-    navigateTo(): void {
+    public navigateTo(): void {
 
     }
 }
-
+
