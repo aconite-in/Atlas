@@ -83,10 +83,13 @@ stages:
       - job: Provision
         displayName: Provision_Environment
         steps:
-          - task: Bash@3
+          - task: DownloadBuildArtifacts@0
+            displayName: Get TerraForm Artifacts
             inputs:
-              targetType: 'inline'
-              script: 'echo ''Provision Environment Stage'''
+              artifactName: provision
+              project: Terraform_Ansible
+              pipeline: aconite-in.Atlas
+              buildVersionToDownload: latest
 
 ## This shoudl include API test and smoke tests
   - stage: ReadinessTests
