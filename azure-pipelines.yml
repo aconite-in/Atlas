@@ -1,7 +1,3 @@
-# Node.js with Angular
-# Build a Node.js project that uses Angular.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
 - master
@@ -10,11 +6,22 @@ pool:
   vmImage: 'ubuntu-latest'
 
 stages:
+  - stage: static_scans
+    displayName: Static Code Scan
+    jobs: 
+      - job: StaticScan
+        displayName: Static Code Scan
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''Static code scan Stage'''
+
   - stage: Compile
     displayName: Build Stage
     jobs: 
       - job: Build
-        displayName: Build
+        displayName: Build Angular
         steps:
           - task: NodeTool@0
             displayName: "Compiling Angular"
@@ -22,26 +29,42 @@ stages:
               npm install -g @angular/cli
               npm install
               ng build --prod
-  - stage: Provision_Environment
-    displayName: Provision Env
-    jobs: 
-      - job: Provision
-        displayName: Provision_Environment
+      - job: TerraForm
+        displayName: Artifact Teraform
         steps:
-          - task: Bash@3
+          - task: CopyFiles@2
+            displayName: "Copy Terraform"
             inputs:
-              targetType: 'inline'
-              script: 'echo ''Provision Environment Stage'''
-  - stage: ReadinessTests
-    displayName: Readiness Test
-    jobs: 
-      - job: Provision
-        displayName: ReadinessTests
+              SourceFolder: "./provision"
+              TargetFolder: '$(Build.ArtifactStagingDirectory)/provision'
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish Artifact: provision'
+            inputs:
+              ArtifactName: provision
+              PathtoPublish: $(Build.ArtifactStagingDirectory)/provision
+              publishLocation: Container
+      - job: TSpector
+        displayName: TSpector Build
         steps:
-          - task: Bash@3
+          - task: NodeTool@0
             inputs:
-              targetType: 'inline'
-              script: 'echo ''ReadinessTests Stage'''
+              versionSpec: '10.x'
+            displayName: 'Install Node.js'
+          - script: |
+              npm install
+            displayName: 'npm install and build'
+          - task: CopyFiles@2
+            displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+            inputs:
+              SourceFolder: "./e2e"
+              TargetFolder: '$(Build.ArtifactStagingDirectory)/e2e'
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish Artifact: TSpector'
+            inputs:
+              ArtifactName: e2e
+              PathtoPublish: $(Build.ArtifactStagingDirectory)/e2e
+              publishLocation: Container
+
   - stage: UnitTests
     displayName: Unit Test
     jobs: 
@@ -52,3 +75,51 @@ stages:
             inputs:
               targetType: 'inline'
               script: 'echo ''Unit Tests Stage'''
+
+## This should inc
+  - stage: Provision_Environment
+    displayName: Prov Env & Deploy
+    jobs: 
+      - job: Provision
+        displayName: Provision_Environment
+        steps:
+          - task: DownloadBuildArtifacts@0
+            displayName: Get TerraForm Artifacts
+            inputs:
+              artifactName: provision
+              project: Terraform_Ansible
+              pipeline: aconite-in.Atlas
+              buildVersionToDownload: latest
+
+## This shoudl include API test and smoke tests
+  - stage: ReadinessTests
+    displayName: Environment Readiness 
+    jobs: 
+      - job: APITest
+        displayName: API Test
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''API Test'''
+
+## should include the UI test subset
+      - job: SmokeTest
+        displayName: Smoke Test
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''Smoke Test Stage'''
+
+## Just a place holder
+  - stage: E2E
+    displayName: End to End QA Test
+    jobs: 
+      - job: Provision
+        displayName: e2e
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''QA Test'''
