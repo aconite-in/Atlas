@@ -12,10 +12,12 @@ stages:
       - job: StaticScan
         displayName: Static Code Scan
         steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: 'echo ''Static code scan Stage'''
+          - task: NodeTool@0
+            displayName: "Compiling Angular"
+          - script:
+              npm install -g @angular/cli
+              npm install
+              ng lint
 
   - stage: Compile
     displayName: Build Stage
@@ -26,8 +28,6 @@ stages:
           - task: NodeTool@0
             displayName: "Compiling Angular"
           - script:
-              npm install -g @angular/cli
-              npm install
               ng build --prod
       - job: TerraForm
         displayName: Artifact Teraform
