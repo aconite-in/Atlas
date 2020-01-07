@@ -15,8 +15,7 @@ export class EnvironmentReadiness {
         await promise.probe(this.endPoint).then((value) => {
             if (value.alive) {
                 Logger.log(LogLevel.INFO, `EnvironmentReadiness: Success to ping the end point: "${this.endPoint}"`);
-            }
-            else {
+            } else {
                 Logger.log(LogLevel.ERROR, `EnvironmentReadiness: Failed to ping the end point: "${this.endPoint}"`);
             }
         }).catch((error) => {

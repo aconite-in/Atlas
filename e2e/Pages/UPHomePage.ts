@@ -32,4 +32,3 @@ export class UPHomePage extends BasePage {
         await UPswitchpge.FISBButton.click();
     }
 }
-

@@ -19,4 +19,3 @@ export class UPSwitchselectPage extends BasePage {
     public navigateTo(): void {
     }
 }
-

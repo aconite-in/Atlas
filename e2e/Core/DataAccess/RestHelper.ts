@@ -129,8 +129,7 @@ export class RestHelper {
     public static async validateResponseStatusCode(statusCode: number) {
         if (this.resp.status == statusCode) {
             Logger.log(LogLevel.INFO, `RestHelper: Response code matched ${statusCode}`);
-        }
-        else {
+        } else {
             Logger.log(LogLevel.INFO, `RestHelper: Response code matched did not matched\n\tExpected:${statusCode}\n\tActual:${this.resp.status}`);
         }
     }
@@ -164,8 +163,7 @@ export class RestHelper {
         Logger.log(LogLevel.INFO, `RestHelper: File parsed succefully. Attempting to vaildate against response ${expectedResponseBodyFilePath}`);
         if (Buffer.from(expectedResponse).compare(this.resp.body) === 0) {
             Logger.log(LogLevel.INFO, `RestHelper: file are same ${expectedResponseBodyFilePath}`);
-        }
-        else {
+        } else {
             Logger.log(LogLevel.ERROR, `RestHelper: File are different ${expectedResponseBodyFilePath}`);
         }
     }

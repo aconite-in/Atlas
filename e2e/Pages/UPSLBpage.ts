@@ -44,4 +44,3 @@ export class UPSLBpage extends BasePage {
         if (await UPHomepage.isOpen()) { await UPHomepage.SLBlinklabel.click(); } else { await UPHomepage.navigateTo(); await UPHomepage.isOpen(); await UPHomepage.SLBlinklabel.click(); }
     }
 }
-

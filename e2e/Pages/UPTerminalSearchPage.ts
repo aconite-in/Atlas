@@ -39,4 +39,3 @@ export class UPTerminalSearchPage extends BasePage {
         if (await UPHomepage.isOpen()) { await UPHomepage.TerminalSearchlinklabel.click(); } else { await UPHomepage.navigateTo(); await UPHomepage.isOpen(); await UPHomepage.TerminalSearchlinklabel.click(); }
     }
 }
-

@@ -42,4 +42,3 @@ export class UPTerminaldetailPage extends BasePage {
         await UPTermsearchpage.TerminIDinpopup.click();
     }
 }
-

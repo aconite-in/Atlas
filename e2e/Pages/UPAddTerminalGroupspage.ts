@@ -18,4 +18,3 @@ export class UPAddTerminalGroupspage extends BasePage {
 
     }
 }
-

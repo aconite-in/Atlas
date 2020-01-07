@@ -32,4 +32,3 @@ export class UPTerminalGroupspage extends BasePage {
     }
 
 }
-

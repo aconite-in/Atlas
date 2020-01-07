@@ -50,4 +50,3 @@ export class UPTransactionsearchpage extends BasePage {
 
     }
 }
-
