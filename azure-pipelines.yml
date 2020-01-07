@@ -17,7 +17,7 @@ stages:
           - script:
               npm install -g @angular/cli
               npm install
-              tslint -c tslint.json 'src/**/*.ts'
+              ng lint
 
   - stage: Compile
     displayName: Build Stage
@@ -28,6 +28,8 @@ stages:
           - task: NodeTool@0
             displayName: "Compiling Angular"
           - script:
+              npm install -g @angular/cli
+              npm install
               ng build --prod
       - job: TerraForm
         displayName: Artifact Teraform
