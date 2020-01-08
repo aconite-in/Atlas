@@ -20,7 +20,7 @@ stages:
               ng lint
       - job: Dependentjob
         displayName: dependent job
-        dependsOn: static_scans
+        dependsOn: StaticScan
         steps:
           - task: Bash@3
             inputs:
