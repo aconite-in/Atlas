@@ -18,6 +18,14 @@ stages:
               npm install -g @angular/cli
               npm install
               ng lint
+      - job: Dependentjob
+        displayName: dependent job
+        dependsOn: static_scans
+        steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'echo ''QA Test'''
 
   - stage: Compile
     displayName: Build Stage
@@ -96,7 +104,9 @@ stages:
             displayName: 'Bash Script'
             inputs:
               targetType: filePath
-              filePath: './provision/provision.sh'
+#Making the script failby renaming the file from "provision.sh" to "provision1.sh", 
+#as I dont want the resources to be created for now.
+              filePath: './provision/provision1.sh'
               arguments: '$(ARM_CLIENT_ID) $(ARM_CLIENT_SECRET) $(ARM_SUBSCRIPTION_ID) $(ARM_TENANT_ID)'
               workingDirectory: './provision'
 
