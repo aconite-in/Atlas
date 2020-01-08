@@ -104,9 +104,7 @@ stages:
             displayName: 'Bash Script'
             inputs:
               targetType: filePath
-#Making the script failby renaming the file from "provision.sh" to "provision1.sh", 
-#as I dont want the resources to be created for now.
-              filePath: './provision/provision1.sh'
+              filePath: './provision/provision.sh'
               arguments: '$(ARM_CLIENT_ID) $(ARM_CLIENT_SECRET) $(ARM_SUBSCRIPTION_ID) $(ARM_TENANT_ID)'
               workingDirectory: './provision'
 
