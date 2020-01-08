@@ -38,7 +38,7 @@ stages:
           - script:
               npm install -g @angular/cli
               npm install
-              ng build --prod
+              npm run build --prod
           - task: CopyFiles@2
             displayName: "Copy Terraform"
             inputs:
@@ -115,7 +115,7 @@ stages:
             displayName: 'Bash Script'
             inputs:
               targetType: filePath
-              filePath: './provision/provision1.sh'
+              filePath: './provision/provision.sh'
               arguments: '$(ARM_CLIENT_ID) $(ARM_CLIENT_SECRET) $(ARM_SUBSCRIPTION_ID) $(ARM_TENANT_ID)'
               workingDirectory: './provision'
 
