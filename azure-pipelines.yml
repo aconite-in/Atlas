@@ -39,6 +39,17 @@ stages:
               npm install -g @angular/cli
               npm install
               ng build --prod
+          - task: CopyFiles@2
+            displayName: "Copy Terraform"
+            inputs:
+              SourceFolder: "./angular"
+              TargetFolder: '$(Build.ArtifactStagingDirectory)/angular'
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish Artifact: angular'
+            inputs:
+              ArtifactName: angular
+              PathtoPublish: $(Build.ArtifactStagingDirectory)/angular
+              publishLocation: Container
       - job: TerraForm
         displayName: Artifact Teraform
         steps:
@@ -96,7 +107,7 @@ stages:
           - task: DownloadBuildArtifacts@0
             displayName: Get TerraForm Artifacts
             inputs:
-              artifactName: provision
+              artifactName: angular
               project: Terraform_Ansible
               pipeline: aconite-in.Atlas
               buildVersionToDownload: latest
@@ -104,7 +115,7 @@ stages:
             displayName: 'Bash Script'
             inputs:
               targetType: filePath
-              filePath: './provision/provision.sh'
+              filePath: './provision/provision1.sh'
               arguments: '$(ARM_CLIENT_ID) $(ARM_CLIENT_SECRET) $(ARM_SUBSCRIPTION_ID) $(ARM_TENANT_ID)'
               workingDirectory: './provision'
 
