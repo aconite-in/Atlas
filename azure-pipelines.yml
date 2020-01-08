@@ -85,14 +85,10 @@ stages:
       - job: Provision
         displayName: Provision_Environment
         steps:
-          - task: AzureKeyVault@1
-            inputs:
-              azureSubscription: 'Azure subscription 1 (fbdc4d43-f867-4226-bbe5-b0d1aeef2e12)'
-              KeyVaultName: 'Loki'
           - task: Bash@3
             inputs:
               targetType: 'inline'
-              script: 'echo $(ClientID)'
+              script: 'echo %ClientId%'
           - task: DownloadBuildArtifacts@0
             displayName: Get TerraForm Artifacts
             inputs:
