@@ -42,7 +42,7 @@ stages:
           - task: CopyFiles@2
             displayName: "Copy Terraform"
             inputs:
-              SourceFolder: "./angular"
+              SourceFolder: "."
               TargetFolder: '$(Build.ArtifactStagingDirectory)/angular'
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Artifact: angular'
