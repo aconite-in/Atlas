@@ -20,3 +20,6 @@ echo "ansible_ssh_pass=Password1234!" >> inventory
 
 cat inventory
 export ANSIBLE_HOST_KEY_CHECKING=False
+
+
+sudo sshpass -p "Password1234!" scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r ../dist/Atlas testadmin@$vmss_ip:~/
