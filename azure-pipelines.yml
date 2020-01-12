@@ -15,7 +15,7 @@ stages:
           - task: NodeTool@0
             displayName: "Compiling Angular"
           - script:
-              npm install -g @angular/cli
+              # npm install -g @angular/cli
               npm install
               ng lint
       - job: Dependentjob
