@@ -15,7 +15,7 @@ stages:
           - task: NodeTool@0
             displayName: "Compiling Angular"
           - script:
-              npm install -g @angular/cli
+              # npm install -g @angular/cli
               npm install
               ng lint
       - job: Dependentjob
@@ -35,10 +35,11 @@ stages:
         steps:
           - task: NodeTool@0
             displayName: "Compiling Angular"
-          - script:
-              npm install -g @angular/cli
+          - script: |
+              npm install -g @angular/cli@6.3.8
               npm install
-              npm run build --prod
+              npm run build
+              ng build --prod
           - task: CopyFiles@2
             displayName: "Copy Terraform"
             inputs:
