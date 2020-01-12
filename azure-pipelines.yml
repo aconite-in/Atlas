@@ -36,7 +36,7 @@ stages:
           - task: NodeTool@0
             displayName: "Compiling Angular"
           - script: |
-              npm install -g @angular/cli@5.3.8
+              npm install -g @angular/cli@6.3.8
               npm install
               npm run build
               ng build --prod
