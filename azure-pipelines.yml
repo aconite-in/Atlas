@@ -33,19 +33,12 @@ stages:
       - job: Build
         displayName: Build Angular
         steps:
-          # - task: NodeTool@0
-          #   displayName: "Compiling Angular"
-          # - script:
-          #     npm install -g @angular/cli
-          #     npm install
-          #     npm run build-prod
-          - task: Npm@1
-            inputs:
-              command: 'install'
-          - task: Npm@1
-            inputs:
-              command: 'custom'
-              customCommand: 'run build-prod'
+          - task: NodeTool@0
+            displayName: "Compiling Angular"
+          - script:
+              npm install -g @angular/cli
+              npm install
+              npm run build-prod
           - task: CopyFiles@2
             displayName: "Copy Terraform"
             inputs:
