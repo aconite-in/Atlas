@@ -38,7 +38,6 @@ stages:
           - script: |
               npm install -g @angular/cli@6.3.8
               npm install
-              npm run build
           - task: CopyFiles@2
             displayName: "Copy Terraform"
             inputs:
