@@ -114,11 +114,7 @@ stages:
               filePath: './provision/provision.sh'
               arguments: '$(ARM_CLIENT_ID) $(ARM_CLIENT_SECRET) $(ARM_SUBSCRIPTION_ID) $(ARM_TENANT_ID)'
               workingDirectory: './provision'
-      
-      - job: Ansible
-        displayName: Ansible
-        dependsOn: Provision
-        steps:
+              
           - task: ms-vscs-rm.vss-services-ansible.ansible-task.Ansible@0
             displayName: 'Run playbook'
             inputs:
