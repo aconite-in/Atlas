@@ -1,6 +1,7 @@
-import { Given, TableDefinition, Then, When } from "cucumber";
-import { async } from "q";
+import { When, Given, TableDefinition, Then } from "cucumber";
 import { RestHelper } from "../Core/DataAccess/RestHelper";
+import { async } from "q";
+
 
 /**
  * This step stores the End-Point of API to be used in the POST and GET request steps. In case your API calls requires headers, those can be specified using a other step provided to set the default headers.
@@ -15,6 +16,7 @@ Given("API end point is {string}", async (apiEndPoint: string) => {
 Given("Request content Type is JS Object", async () => {
     await RestHelper.setJSONContentType();
 });
+
 
 /**
  * This step makes a GET request to API.
@@ -63,6 +65,7 @@ When("System makes POST request with parameter {string}", async (parameters: str
     await RestHelper.postRequestWithParam(parameters);
 });
 
+
 /**
  * This step makes a POST request to API with the parameters specified document string.
  * The API End point can be set using other step Given('API end point is ""), which should be used before using this step.
@@ -99,6 +102,7 @@ Then("Validate response code is {string}", async (statusCode: number) => {
     await RestHelper.validateResponseStatusCode(statusCode);
 });
 
+
 Then("Validate response body is", async (expectedResponseBody: string) => {
     await RestHelper.validateResponseJSONBody(expectedResponseBody);
 });
@@ -106,6 +110,7 @@ Then("Validate response body is", async (expectedResponseBody: string) => {
 Then("Validate response body matches in file {string}", async (expectedResponseBodyFilePath: string) => {
     await RestHelper.validateResponseJSONBodyAgainstFile(expectedResponseBodyFilePath);
 });
+
 
 Then("Validate XML response body matches in file {string}", async (expectedResponseBodyFilePath: string) => {
     await RestHelper.validateResponseXMLBodyAgainstFile(expectedResponseBodyFilePath);

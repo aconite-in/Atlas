@@ -10,11 +10,11 @@ export class CMSePrefixValidatePage extends BasePage {
     public Submitbutton: Button = new Button("id", "submitButton");
 
     constructor() {
-        // super("", '//*[contains(text(),"Click SUBMIT to LINK the Product and Prefix")]', undefined, "xpath"); //wait till the Prefix validate page is loaded
+        //super("", '//*[contains(text(),"Click SUBMIT to LINK the Product and Prefix")]', undefined, "xpath"); //wait till the Prefix validate page is loaded
         super("", "Click SUBMIT to LINK the Product and Prefix", undefined, "text");
     }
 
-    public navigateTo(): void {
-        // throw new Error("Method not implemented.");
+    navigateTo(): void {
+        //throw new Error("Method not implemented.");
     }
 }

@@ -11,12 +11,12 @@ export class CMSeInstitutionPage extends BasePage {
     public CardholderTab: Button = new Button("id", "CardholderMenuTab");
 
     constructor() {
-        super("", "inst", undefined, "id"); // wait till the Institution Page is loaded
+        super("", "inst", undefined, "id"); //wait till the Institution Page is loaded
     }
 
-    public async navigateTo() { // Navigate till Instititon ID Page
-        // throw new Error("Method not implemented.");
-        const CMSeCHpage = new CMSeCardholderPage();
+    async navigateTo() { //Navigate till Instititon ID Page
+        //throw new Error("Method not implemented.");
+        let CMSeCHpage = new CMSeCardholderPage();
         await CMSeCHpage.navigateTo();
         await CMSeCHpage.InstitutionTab.click();
         await this.isOpen();

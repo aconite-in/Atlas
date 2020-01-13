@@ -15,14 +15,14 @@ export class CMSeIssIdAddPage extends BasePage {
     public ReissuedefaultCheckbox: Button = new Button("id", "reissueDefault");
     public ReplacementdefaultCheckbox: Button = new Button("id", "replacementDefault");
     public CompromisedefaultCheckbox: Button = new Button("id", "compromisedDefault");
-    public Submitbutton: Button = new Button("classname", "submit");
+    public Submitbutton: Button = new Button("classname", "submit")
 
     constructor() {
-        super("", "submit", undefined, "classname"); // wait till the Issuer ID add page is loaded
+        super("", "submit", undefined, "classname"); //wait till the Issuer ID add page is loaded
     }
 
-    public navigateTo(): void {// Navigate to Issuer ID Configuration page
-        // throw new Error("Method not implemented.");
+    navigateTo(): void {//Navigate to Issuer ID Configuration page
+        //throw new Error("Method not implemented.");
 
     }
 }

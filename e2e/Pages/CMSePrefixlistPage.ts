@@ -9,12 +9,13 @@ export class CMSePrefixlistPage extends BasePage {
     public ViewProductbutton: Button = new Button("id", "ViewProductConfiguration");
     public PrefixlistTable: HtmlTable = new HtmlTable("css", "#main-column > div > table", "#nextButton", "#previousButton");
 
+
     constructor() {
-        // super("", '//*[contains(text(),"Please select a Prefix.")]', undefined, "xpath"); //wait till the Prefix list page is loaded
+        //super("", '//*[contains(text(),"Please select a Prefix.")]', undefined, "xpath"); //wait till the Prefix list page is loaded
         super("", "Please select a Prefix.", undefined, "text");
     }
 
-    public navigateTo(): void {
-        // throw new Error("Method not implemented.");
+    navigateTo(): void {
+        //throw new Error("Method not implemented.");
     }
 }

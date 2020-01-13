@@ -15,11 +15,11 @@ export class CMSeProductInformationPage extends BasePage {
     public ProductIDlabel: Label = new Label("xpath", '//*[@id="product-information"]/span[2]');
 
     constructor() {
-        // super("", '//*[contains(text(),"Image Store Parameters:")]', undefined, "xpath"); //wait till the Product ID information page is loaded
+        //super("", '//*[contains(text(),"Image Store Parameters:")]', undefined, "xpath"); //wait till the Product ID information page is loaded
         super("", "Image Store Parameters:", undefined, "text");
     }
 
-    public navigateTo(): void {
-        // throw new Error("Method not implemented.");
+    navigateTo(): void {
+        //throw new Error("Method not implemented.");
     }
 }

@@ -1,0 +1,19 @@
+{
+	"PageObject": {
+		"prefix": "NewPage",
+		"scope": "typescript",
+		"body": [
+			"import { BasePage } from \"..\/Core\/BasePage\";",
+			"\nexport class $1Page extends BasePage {",
+			"\n\n\tconstructor() {",
+			"\t\tsuper('','$0');",
+			"\t}",
+			"\n\tnavigateTo(): void {",
+			"\t\t//Insert your Navigation code here",
+			"\t\t",
+			"\t}",
+			"}"
+		],
+		"description": "NewPage"
+	},
+}

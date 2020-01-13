@@ -1,8 +1,8 @@
-import { browser } from "protractor";
+import { browser } from "protractor"
 import { BasePage } from "../Core/BasePage";
+import { TextBox } from "../Core/WebElements/TextBox";
 import { Button } from "../Core/WebElements/Button";
 import { Label } from "../Core/WebElements/Label";
-import { TextBox } from "../Core/WebElements/TextBox";
 import { config } from "../protractor.conf";
 
 export class JMSLoginPage extends BasePage {
@@ -15,10 +15,10 @@ export class JMSLoginPage extends BasePage {
 
     constructor() {
         super("https://pr-jms.fisintegratedpayables.com/jms/login.aspx", "//span[@id='AppName']", 20000, "xpath");
-        // super("http://idp-apex-ui-dev.sdlocpapp.fisdev.local/IdPRI-4.15.0/apexdev/", "")
+        //super("http://idp-apex-ui-dev.sdlocpapp.fisdev.local/IdPRI-4.15.0/apexdev/", "")
     }
 
-    public navigateTo(): void {
-        browser.get(this.pageURL);
+    navigateTo(): void {
+        browser.get(this.pageURL)
     }
 }

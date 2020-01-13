@@ -1,9 +1,10 @@
-import { browser, by, element } from "protractor";
+import { browser, element, by } from "protractor"
 import { BasePage } from "../Core/BasePage";
-import { LinkLabel } from "../Core/WebElements/LinkLabel";
-import { config } from "../protractor.conf";
 import { UPLoginPage } from "./UPLoginPage";
 import { UPSwitchselectPage } from "./UPSwitchselectPage";
+import { LinkLabel } from "../Core/WebElements/LinkLabel";
+import { config } from "../protractor.conf";
+
 
 export class UPHomePage extends BasePage {
 
@@ -14,21 +15,22 @@ export class UPHomePage extends BasePage {
     public SLBCasemanagerlinklabel: LinkLabel = new LinkLabel("xpath", '//*[contains(@class,"page-link-container")] //*[contains(text(),"SecurLOCK Case Manager")]');
 
     constructor() {
-        super("", "page-link-container", 20000, "classname"); // wait till the Home Search page is loaded
+        super("", "page-link-container", 20000, "classname"); //wait till the Home Search page is loaded
     }
 
-    public async navigateTo() {
-        const UPLoginpge = new UPLoginPage();
-        const UPswitchpge = new UPSwitchselectPage();
-        browser.ignoreSynchronization = true; // to handle non-angular Login page
+    async navigateTo() {
+        let UPLoginpge = new UPLoginPage();
+        let UPswitchpge = new UPSwitchselectPage();
+        browser.ignoreSynchronization = true; //to handle non-angular Login page
         await UPLoginpge.navigateTo();
         await UPLoginpge.isOpen(true);
         browser.sleep(500);
         await UPLoginpge.UserName.type(config.constants.UPSITuser);
         await UPLoginpge.Password.type(config.constants.UPSITpassword);
         await UPLoginpge.SigninBtn.click();
-        browser.ignoreSynchronization = false; // to handle angular from this point
+        browser.ignoreSynchronization = false; //to handle angular from this point
         await UPswitchpge.isOpen(true);
         await UPswitchpge.FISBButton.click();
     }
 }
+

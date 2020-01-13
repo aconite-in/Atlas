@@ -1,11 +1,11 @@
 import { BasePage } from "../Core/BasePage";
 import { Button } from "../Core/WebElements/Button";
-import { ComboBox } from "../Core/WebElements/ComboBox";
-import { Label } from "../Core/WebElements/Label";
+import { CMSeLoginPage } from "./CMSeLoginPage";
 import { TextBox } from "../Core/WebElements/TextBox";
 import { CMSeCardholderPage } from "./CMSeCardholderPage";
 import { CMSeInstitutionPage } from "./CMSeInstitutionPage";
-import { CMSeLoginPage } from "./CMSeLoginPage";
+import { ComboBox } from "../Core/WebElements/ComboBox";
+import { Label } from "../Core/WebElements/Label";
 
 export class CMSeNegFilestatusPage extends BasePage {
 
@@ -24,14 +24,14 @@ export class CMSeNegFilestatusPage extends BasePage {
     public Submitbutton: Button = new Button("id", "Submit");
 
     constructor() {
-        // super("", "//*[contains(text(),'NEG FILE STATUS')]", undefined, "xpath"); //wait till Neg File status page is loaded
+        //super("", "//*[contains(text(),'NEG FILE STATUS')]", undefined, "xpath"); //wait till Neg File status page is loaded
         super("", "NEG FILE STATUS", undefined, "text");
     }
 
-    public async navigateTo() {// Navigate till Cardholder Search page
-        // throw new Error("Method not implemented.");
-        const Cardholderpage = new CMSeCardholderPage();
-        const Instpage = new CMSeInstitutionPage();
+    async navigateTo() {//Navigate till Cardholder Search page
+        //throw new Error("Method not implemented.");
+        let Cardholderpage = new CMSeCardholderPage();
+        let Instpage = new CMSeInstitutionPage();
         await Instpage.CardholderTab.click();
         await Cardholderpage.InstIdtextbox.type("00547");
         await Cardholderpage.CardNumberradio.click();
