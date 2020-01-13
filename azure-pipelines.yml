@@ -114,6 +114,19 @@ stages:
               filePath: './provision/provision.sh'
               arguments: '$(ARM_CLIENT_ID) $(ARM_CLIENT_SECRET) $(ARM_SUBSCRIPTION_ID) $(ARM_TENANT_ID)'
               workingDirectory: './provision'
+      
+      - job: Ansible
+        displayName: Ansible
+        dependsOn: Provision
+        steps:
+          - task: ms-vscs-rm.vss-services-ansible.ansible-task.Ansible@0
+            displayName: 'Run playbook'
+            inputs:
+              playbookPathOnAgentMachine: '$(System.DefaultWorkingDirectory)/provision/webservers.yml'
+              inventoriesAgentMachine: file
+              inventoryFileOnAgentMachine: '$(System.DefaultWorkingDirectory)/provision/inventory'
+              args: '--ssh-common-args="-o StrictHostKeyChecking=no"'
+              failOnStdErr: false
 
 ## This shoudl include API test and smoke tests
   - stage: ReadinessTests
