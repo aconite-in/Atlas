@@ -145,7 +145,7 @@ stages:
           - script: |
               npm install
               npm run tsc
-              npm run test
+              npm run test -- --cucumberOpts.tags=@DAPI
             displayName: 'npm install and build'
 
 ## should include the UI test subset
