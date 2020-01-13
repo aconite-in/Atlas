@@ -131,19 +131,40 @@ stages:
       - job: APITest
         displayName: API Test
         steps:
-          - task: Bash@3
+          - task: DownloadBuildArtifacts@0
+            displayName: Get TSpector Artifacts
             inputs:
-              targetType: 'inline'
-              script: 'echo ''API Test'''
+              artifactName: TSpector
+              project: Terraform_Ansible
+              pipeline: aconite-in.Atlas
+              buildVersionToDownload: latest
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '10.x'
+            displayName: 'Install Node.js'
+          - script: |
+              npm install
+              npm run tsc
+              npm run test
+            displayName: 'npm install and build'
 
 ## should include the UI test subset
       - job: SmokeTest
         displayName: Smoke Test
         steps:
+          - task: DownloadBuildArtifacts@0
+            displayName: Get TSpector Artifacts
+            inputs:
+              artifactName: TSpector
+              project: Terraform_Ansible
+              pipeline: aconite-in.Atlas
+              buildVersionToDownload: latest
           - task: Bash@3
+            displayName: Install and execute
             inputs:
               targetType: 'inline'
-              script: 'echo ''Smoke Test Stage'''
+              script: |
+                ''
 
 ## Just a place holder
   - stage: E2E
@@ -152,6 +173,13 @@ stages:
       - job: Provision
         displayName: e2e
         steps:
+          - task: DownloadBuildArtifacts@0
+            displayName: Get TSpector Artifacts
+            inputs:
+              artifactName: TSpector
+              project: Terraform_Ansible
+              pipeline: aconite-in.Atlas
+              buildVersionToDownload: latest
           - task: Bash@3
             inputs:
               targetType: 'inline'
