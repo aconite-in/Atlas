@@ -18,14 +18,6 @@ stages:
               # npm install -g @angular/cli
               npm install
               ng lint
-      - job: Dependentjob
-        displayName: dependent job
-        dependsOn: StaticScan
-        steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: 'echo ''QA Test'''
 
   - stage: Compile
     displayName: Build Stage
@@ -38,12 +30,15 @@ stages:
           - script: |
               npm install -g @angular/cli@6.3.8
               npm install
-              npm run build
-              ng build --prod
           - task: CopyFiles@2
             displayName: "Copy Terraform"
             inputs:
-              SourceFolder: "."
+              SourceFolder: "./dist"
+              TargetFolder: '$(Build.ArtifactStagingDirectory)/angular'
+          - task: CopyFiles@2
+            displayName: "Copy Provision"
+            inputs:
+              SourceFolder: "./provision"
               TargetFolder: '$(Build.ArtifactStagingDirectory)/angular'
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Artifact: angular'
@@ -79,7 +74,7 @@ stages:
             displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
             inputs:
               SourceFolder: "./e2e"
-              TargetFolder: '$(Build.ArtifactStagingDirectory)/e2e'
+              TargetFolder: '$(Build.ArtifactStagingDirectory)/e2e/'
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Artifact: TSpector'
             inputs:
@@ -119,6 +114,19 @@ stages:
               filePath: './provision/provision.sh'
               arguments: '$(ARM_CLIENT_ID) $(ARM_CLIENT_SECRET) $(ARM_SUBSCRIPTION_ID) $(ARM_TENANT_ID)'
               workingDirectory: './provision'
+      
+      - job: Ansible
+        displayName: Ansible
+        dependsOn: Provision
+        steps:
+          - task: ms-vscs-rm.vss-services-ansible.ansible-task.Ansible@0
+            displayName: 'Run playbook'
+            inputs:
+              playbookPathOnAgentMachine: '$(System.DefaultWorkingDirectory)/provision/webservers.yml'
+              inventoriesAgentMachine: file
+              inventoryFileOnAgentMachine: '$(System.DefaultWorkingDirectory)/provision/inventory'
+              args: '--ssh-common-args="-o StrictHostKeyChecking=no"'
+              failOnStdErr: false
 
 ## This shoudl include API test and smoke tests
   - stage: ReadinessTests
