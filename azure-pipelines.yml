@@ -134,7 +134,7 @@ stages:
           - task: DownloadBuildArtifacts@0
             displayName: Get TSpector Artifacts
             inputs:
-              artifactName: TSpector
+              artifactName: e2e
               project: Terraform_Ansible
               pipeline: aconite-in.Atlas
               buildVersionToDownload: latest
@@ -163,7 +163,7 @@ stages:
           - task: DownloadBuildArtifacts@0
             displayName: Get TSpector Artifacts
             inputs:
-              artifactName: TSpector
+              artifactName: e2e
               project: Terraform_Ansible
               pipeline: aconite-in.Atlas
               buildVersionToDownload: latest
