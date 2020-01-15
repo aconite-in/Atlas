@@ -145,6 +145,8 @@ stages:
                 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb; 
                 sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb; 
                 sudo apt-get install -f -y
+                cd e2e
+                wget https://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_linux64.zip
                 ls
           - task: NodeTool@0
             inputs:
@@ -153,7 +155,7 @@ stages:
           - script: |
               npm install
               npm run tsc
-              npm run test --cucumberOpts.tags=@DAPI
+              npm run test --cucumberOpts.tags=@DAPI --chromeDriver=$(System.DefaultWorkingDirectory)/e2e/chromedriver
             displayName: 'npm install and build'
             workingDirectory: "./e2e/"
 
