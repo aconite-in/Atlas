@@ -155,6 +155,7 @@ stages:
               npm run tsc
               npm run test --cucumberOpts.tags=@DAPI
             displayName: 'npm install and build'
+            workingDirectory: "./e2e/"
 
 ## should include the UI test subset
       - job: SmokeTest
@@ -167,12 +168,6 @@ stages:
               project: Terraform_Ansible
               pipeline: aconite-in.Atlas
               buildVersionToDownload: latest
-          - task: Bash@3
-            displayName: Install and execute
-            inputs:
-              targetType: 'inline'
-              script: |
-                ''
 
 ## Just a place holder
   - stage: E2E
