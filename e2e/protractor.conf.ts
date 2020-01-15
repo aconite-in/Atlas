@@ -17,8 +17,9 @@ export const config: Config = {
     {
         browserName: "chrome",
         // browserName: 'internet explorer',
-        // maxInstances: 1,
-        // 'test'
+        chromeOptions: {
+            args: [ "--headless", "--disable-gpu", "--window-size=800,600" ]
+          }
     },
     chromeDriver: 'C:/Users/E5555287/Downloads/chromedriver/chromedriver.exe',
     // Spec patterns are relative to this directory.
@@ -40,6 +41,7 @@ export const config: Config = {
         "Features/*.feature",
     ],
 
+    isAPI: "True",
     constants: {
         CDPUser: "muthub1",
         CDPPassword: "aBCD12345",
@@ -69,8 +71,10 @@ export const config: Config = {
         if (!config.directConnect) {
             config.cucumberOpts.format = `json:./Reports/TSpector${process.pid}.json`;
         }
-        browser.driver.manage().window().maximize();
-        browser.ignoreSynchronization = true; // false is the value to handle Angular js
+        if (!config.isAPI) {
+            browser.driver.manage().window().maximize();
+            browser.ignoreSynchronization = true; // false is the value to handle Angular js}
+        }
         Logger.InstantiateLogger();
     },
 

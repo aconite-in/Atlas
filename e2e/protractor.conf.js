@@ -15,6 +15,10 @@ exports.config = {
     frameworkPath: "./node_modules/protractor-cucumber-framework",
     capabilities: {
         browserName: "chrome",
+        // browserName: 'internet explorer',
+        chromeOptions: {
+            args: ["--headless", "--disable-gpu", "--window-size=800,600"]
+        }
     },
     chromeDriver: 'C:/Users/E5555287/Downloads/chromedriver/chromedriver.exe',
     // Spec patterns are relative to this directory.
@@ -31,6 +35,7 @@ exports.config = {
         // 'Features/CDPAPI.feature', 'Features/UPAPI.Feature'
         "Features/*.feature",
     ],
+    isAPI: "True",
     constants: {
         CDPUser: "muthub1",
         CDPPassword: "aBCD12345",
@@ -57,8 +62,10 @@ exports.config = {
         if (!exports.config.directConnect) {
             exports.config.cucumberOpts.format = `json:./Reports/TSpector${process.pid}.json`;
         }
-        protractor_1.browser.driver.manage().window().maximize();
-        protractor_1.browser.ignoreSynchronization = true; // false is the value to handle Angular js
+        if (!exports.config.isAPI) {
+            protractor_1.browser.driver.manage().window().maximize();
+            protractor_1.browser.ignoreSynchronization = true; // false is the value to handle Angular js}
+        }
         Logger_1.Logger.InstantiateLogger();
     },
     onComplete() {
