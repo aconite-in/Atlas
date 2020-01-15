@@ -21,7 +21,7 @@ export const config: Config = {
             args: [ "--headless", "--disable-gpu", "--window-size=800,600" ]
           }
     },
-    chromeDriver: 'C:/Users/E5555287/Downloads/chromedriver/chromedriver.exe',
+    chromeDriver: 'chromedriver',
     // Spec patterns are relative to this directory.
     specs: [
         // UP UI Regression flows -----------------------
