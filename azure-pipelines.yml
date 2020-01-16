@@ -14,7 +14,7 @@ stages:
         steps:
           - task: NodeTool@0
             displayName: "Compiling Angular"
-          - script:
+          - script: |
               # npm install -g @angular/cli
               npm install
               ng lint
@@ -88,10 +88,23 @@ stages:
       - job: Provision
         displayName: Angular Unit Tests
         steps:
-          - task: Bash@3
+          - task: DownloadBuildArtifacts@0
+            displayName: Get Angular unit test Artifacts
             inputs:
-              targetType: 'inline'
-              script: 'echo ''Unit Tests Stage'''
+              artifactName: angular
+              project: Terraform_Ansible
+              pipeline: aconite-in.Atlas
+              buildVersionToDownload: latest
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '10.x'
+            displayName: 'Install Node.js'
+          - script: |
+              npm install
+              npm run test-headless
+            displayName: 'Angular Unit Test Execution'
+            workingDirectory: "."
 
 ## This should inc
   - stage: Provision_Environment
