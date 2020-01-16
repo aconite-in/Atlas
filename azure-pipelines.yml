@@ -20,7 +20,7 @@ stages:
               ng lint
 
   - stage: Compile
-    displayName: Build Stage
+    displayName: Build
     jobs: 
       - job: Build
         displayName: Build Angular
@@ -47,7 +47,7 @@ stages:
               PathtoPublish: $(Build.ArtifactStagingDirectory)/angular
               publishLocation: Container
       - job: TerraForm
-        displayName: Artifact Teraform
+        displayName: Build Teraform
         steps:
           - task: CopyFiles@2
             displayName: "Copy Terraform"
@@ -61,7 +61,7 @@ stages:
               PathtoPublish: $(Build.ArtifactStagingDirectory)/provision
               publishLocation: Container
       - job: TSpector
-        displayName: TSpector Build
+        displayName: Build TSpector
         steps:
           - task: NodeTool@0
             inputs:
@@ -83,10 +83,10 @@ stages:
               publishLocation: Container
 
   - stage: UnitTests
-    displayName: Unit Test
+    displayName: Unit Tests
     jobs: 
       - job: Provision
-        displayName: UnitTests
+        displayName: Angular Unit Tests
         steps:
           - task: Bash@3
             inputs:
