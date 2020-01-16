@@ -14,8 +14,8 @@ stages:
         steps:
           - task: NodeTool@0
             displayName: "Compiling Angular"
-          - script: |
-              # npm install -g @angular/cli
+          - script: 
+              #npm install -g @angular/cli
               npm install
               ng lint
 
