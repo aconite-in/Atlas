@@ -9,7 +9,7 @@ export class AtlasHomePage extends BasePage {
     angularMaterial: Button = new Button("xpath", "/html/body/app-root/div[2]/div[3]/div[2]/span");
 
     constructor() {
-        super('', '');
+        super('', '/html/body/app-root/div[2]/div[3]/div[1]/span"');
     }
 
     async navigateTo() {
