@@ -148,7 +148,16 @@ stages:
   - stage: ReadinessTests
     displayName: Environment Readiness 
     jobs: 
+      - job: PingTest
+        displayName: Ping Test
+        steps:
+          - task: Bash@3
+            displayName: Ping Test
+            inputs:
+              targetType: 'inline'
+              script: /usr/bin/wget $(currentVMIP) --timeout 30 -O - 2>/dev/null | grep "Normal operation string" || echo "The site is down" ; exit 125
       - job: Mock_API
+        dependsOn: PingTest
         displayName: Mock API
         steps:
           - task: DownloadBuildArtifacts@0
@@ -168,7 +177,6 @@ stages:
                 cd e2e
                 wget https://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_linux64.zip
                 unzip chromedriver_linux64.zip
-                ls
           - task: NodeTool@0
             inputs:
               versionSpec: '10.x'
@@ -181,6 +189,7 @@ stages:
             workingDirectory: "./e2e/"
       
       - job: Connex_API
+        dependsOn: PingTest
         displayName: Connex API
         steps:
           - task: DownloadBuildArtifacts@0
@@ -214,6 +223,7 @@ stages:
 
 ## should include the UI test subset
       - job: SmokeTest
+        dependsOn: PingTest
         displayName: Smoke Test
         steps:
           - task: DownloadBuildArtifacts@0
