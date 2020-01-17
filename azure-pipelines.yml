@@ -155,7 +155,7 @@ stages:
             displayName: Ping Test
             inputs:
               targetType: 'inline'
-              script: /usr/bin/wget $(currentVMIP) --timeout 30 -O - 2>/dev/null | grep "Normal operation string" || echo "The site is down";
+              script: echo $(currentVMIP)
               failOnStderr: false
               # exit 125
       - job: Mock_API
