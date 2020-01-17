@@ -253,7 +253,7 @@ stages:
           - script: |
               npm install
               npm run tsc
-              npm run test -- --cucumberOpts.tags=@e2e --appURL=http://$(currentVMIP)/ --chromeDriver=$(System.DefaultWorkingDirectory)/e2e/chromedriver
+              npm run test -- --cucumberOpts.tags=@e2e --appURL=http://$(currentVMIP):8080/ --chromeDriver=$(System.DefaultWorkingDirectory)/e2e/chromedriver
             displayName: 'npm install and build'
             workingDirectory: "./e2e/"
 
