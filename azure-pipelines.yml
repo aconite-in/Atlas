@@ -155,7 +155,7 @@ stages:
             displayName: Ping Test
             inputs:
               targetType: 'inline'
-              script: /usr/bin/wget $(currentVMIP) --timeout 30 -O - 2>/dev/null | grep "Normal operation string" || echo "The site is down";
+              script: echo $(currentVMIP)
               failOnStderr: false
               # exit 125
       - job: Mock_API
@@ -235,6 +235,27 @@ stages:
               project: Terraform_Ansible
               pipeline: aconite-in.Atlas
               buildVersionToDownload: latest
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: |
+                wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb; 
+                sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb; 
+                sudo apt-get install -f -y
+                cd e2e
+                wget https://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_linux64.zip
+                unzip chromedriver_linux64.zip
+                ls
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '10.x'
+            displayName: 'Install Node.js'
+          - script: |
+              npm install
+              npm run tsc
+              npm run test -- --disableChecks --cucumberOpts.tags=@e2e --appURL=http://$(currentVMIP):8080/ --chromeDriver=$(System.DefaultWorkingDirectory)/e2e/chromedriver
+            displayName: 'npm install and build'
+            workingDirectory: "./e2e/"
 
 # ## Just a place holder
 #   - stage: E2E
