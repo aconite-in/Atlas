@@ -256,6 +256,19 @@ stages:
               npm run test -- --disableChecks --cucumberOpts.tags=@e2e --appURL=http://$(currentVMIP):8080/ --chromeDriver=$(System.DefaultWorkingDirectory)/e2e/chromedriver
             displayName: 'npm install and build'
             workingDirectory: "./e2e/"
+          - task: CopyFiles@2
+            continueOnError: true
+            displayName: "Copy Results"
+            inputs:
+              SourceFolder: "./e2e/Reports"
+              TargetFolder: '$(Build.ArtifactStagingDirectory)/SmokeTestReports'
+          - task: PublishBuildArtifacts@1
+            continueOnError: true
+            displayName: 'Publish Artifact: angular'
+            inputs:
+              ArtifactName: Reports
+              PathtoPublish: $(Build.ArtifactStagingDirectory)/SmokeTestReports
+              publishLocation: Container
 
 # ## Just a place holder
 #   - stage: E2E
