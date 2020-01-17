@@ -59,12 +59,13 @@ export const config: Config = {
         // tags: '@Terminal_set1',
         // tags: '@Transearch_set2',
         // tags: '@SLB_set3',
-        "tags": "@DAPI",
+        "tags": "@e2e",
         "profile": false,
         "format": `json:./Reports/TSpector.json`,
         "no-source": true,
     },
 
+    appURL: "http://localhost:4200/",
     baseURL: "http://vlmazapexuiap02.fisdev.local:4200/apexdev",
 
     onPrepare() {

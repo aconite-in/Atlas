@@ -20,7 +20,7 @@ exports.config = {
             args: ["--headless", "--disable-gpu", "--window-size=800,600"]
         }
     },
-    chromeDriver: 'C:/Users/E5555287/Downloads/chromedriver/chromedriver.exe',
+    chromeDriver: 'chromedriver',
     // Spec patterns are relative to this directory.
     specs: [
         // UP UI Regression flows -----------------------
@@ -52,11 +52,12 @@ exports.config = {
         // tags: '@Terminal_set1',
         // tags: '@Transearch_set2',
         // tags: '@SLB_set3',
-        "tags": "@DAPI",
+        "tags": "@e2e",
         "profile": false,
         "format": `json:./Reports/TSpector.json`,
         "no-source": true,
     },
+    appURL: "http://localhost:4200/",
     baseURL: "http://vlmazapexuiap02.fisdev.local:4200/apexdev",
     onPrepare() {
         if (!exports.config.directConnect) {
