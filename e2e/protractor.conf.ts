@@ -18,7 +18,7 @@ export const config: Config = {
         browserName: "chrome",
         // browserName: 'internet explorer',
         chromeOptions: {
-            args: [ "--headless", "--disable-gpu", "--window-size=800,600" ]
+            args: [ "--headless", "--disable-gpu", "--window-size=1366,768" ]
           }
     },
     chromeDriver: 'chromedriver',
